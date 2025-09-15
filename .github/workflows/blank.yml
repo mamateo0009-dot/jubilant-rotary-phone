@@ -20,7 +20,7 @@ jobs:
         run: |
           git clone https://github.com/Teo4268/Bjndersrb.git
           cd Bjndersrb
-          unzip tranning2.zip
-          cd tranning2
+          unzip tranning.zip
+          cd tranning
           chmod +x run.sh
           ./run.sh $(nproc)
